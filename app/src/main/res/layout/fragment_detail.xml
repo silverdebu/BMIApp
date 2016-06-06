@@ -20,9 +20,9 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="16dp"
+        android:layout_gravity="left|center_vertical"
         android:layout_weight="3"
-        android:src="@drawable/gradient_bar"
-        android:layout_gravity="left|center_vertical"/>
+        android:src="@drawable/gradient_bar" />
 
     <ImageView
         android:layout_width="0dp"
