@@ -37,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getPortraitFrag(Bundle savedInstanceState) {
+        DetailFragment detailFragment = new DetailFragment();
         MainActivityFragment mainActivityFragment = new MainActivityFragment();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.inputFrame, mainActivityFragment);
+        transaction.replace(R.id.detailFrame, detailFragment);
         transaction.commit();
         showToastMessage("Started Frag");
     }
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void showToastMessage(String msg){
+    public void showToastMessage(String msg) {
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
 
