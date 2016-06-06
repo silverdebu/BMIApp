@@ -24,4 +24,9 @@
         android:src="@drawable/gradient_bar"
         android:layout_gravity="left|center_vertical"/>
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
 </LinearLayout>

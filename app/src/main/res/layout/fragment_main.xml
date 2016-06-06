@@ -1,9 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-    android:layout_marginStart="@dimen/activity_horizontal_margin">
+    android:layout_marginStart="@dimen/activity_horizontal_margin"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,8 +34,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:buttonTint="@color/lb_900"
+            android:showText="true"
             android:soundEffectsEnabled="true"
-            android:text="TEST"/>
+            android:textOff="lb"
+            android:textOn="kg" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,6 +63,16 @@
             android:inputType="number"
             android:textAlignment="viewEnd"
             android:textColorHint="@color/gr_400" />
+
+        <Switch
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:buttonTint="@color/lb_900"
+            android:showText="true"
+            android:soundEffectsEnabled="true"
+            android:textOff="M"
+            android:textOn="F" />
     </LinearLayout>
 
     <LinearLayout
@@ -72,7 +84,6 @@
             android:id="@+id/wIconX"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_gravity="left"
             android:layout_weight="1"
             android:scaleType="fitStart"
             android:src="@drawable/ic_straighten_black_24dp"
@@ -95,6 +106,11 @@
             android:inputType="number"
             android:textAlignment="viewEnd"
             android:textColorHint="@color/gr_400" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
     </LinearLayout>
 
 </LinearLayout>
