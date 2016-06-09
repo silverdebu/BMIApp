@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#00796B</color>
-    <color name="colorAccent">#90A4AE</color>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorAccent">#FF5252</color>
     <color name="lb_500">#03A9F4</color>
     <color name="lb_700">#0288D1</color>
     <color name="lb_900">#01579B</color>
@@ -11,6 +11,11 @@
     <color name="ao_400">#FF3D00</color>
     <color name="gr_400">#BDBDBD</color>
     <color name="gr_700">#616161</color>
-    <color name="fragBackgroundColor">#212121</color>
-    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="fragBackgroundColor">#FFFFFF</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="redKey">#F44336</color>
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#727272</color>
+    <color name="dividerColor">#B6B6B6</color>
+    <color name="textIcon">#FFFFFF</color>
 </resources>
