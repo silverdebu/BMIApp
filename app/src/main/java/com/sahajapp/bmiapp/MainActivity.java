@@ -1,17 +1,18 @@
 package com.sahajapp.bmiapp;
 
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+
+import static com.sahajapp.bmiapp.CommonUtil.showToastMessage;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+       /* TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
+        tabs.addTab(tabs.newTab().setText("Tab 1"));
+        tabs.addTab(tabs.newTab().setText("Tab 2"));
+        tabs.addTab(tabs.newTab().setText("Tab 3"));*/
+
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             getPortraitFrag(savedInstanceState);
         } else
@@ -38,13 +44,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getPortraitFrag(Bundle savedInstanceState) {
-        DetailFragment detailFragment = new DetailFragment();
-        MainActivityFragment mainActivityFragment = new MainActivityFragment();
+        if (savedInstanceState != null) return;
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.inputFrame, mainActivityFragment);
-        transaction.replace(R.id.detailFrame, detailFragment);
+        transaction.replace(R.id.inputFrame, MainActivityFragment.newInstance());
+        transaction.replace(R.id.detailFrame, DetailFragment.newInstance());
         transaction.commit();
-        showToastMessage("Started Frag");
+        showToastMessage("Started Frag",this);
     }
 
     @Override
@@ -69,13 +74,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void showToastMessage(String msg) {
-        Context context = getApplicationContext();
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, msg, duration);
-        toast.show();
-    }
 
     @Override
     protected void onStop() {
@@ -85,36 +83,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        showToastMessage("Destroy");
+        showToastMessage("Destroy", this);
     }
 
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        showToastMessage("PostResume");
+        showToastMessage("PostResume", this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        showToastMessage("Pause");
+        showToastMessage("Pause", this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        showToastMessage("Resume");
+        showToastMessage("Resume", this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        showToastMessage("Start");
+        showToastMessage("Start", this);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        showToastMessage("BackPressed");
+        showToastMessage("BackPressed", this);
     }
 }

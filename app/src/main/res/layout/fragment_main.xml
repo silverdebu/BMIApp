@@ -24,10 +24,10 @@
             android:layout_height="40dp"
             android:layout_gravity="left|center_vertical"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
             android:text="Weight"
             android:textColor="@color/textColorPrimary"
-            android:tint="@color/lb_900"
-            android:fontFamily="sans-serif-medium"/>
+            android:tint="@color/lb_900" />
 
         <EditText
             android:id="@+id/weight"
@@ -37,6 +37,7 @@
             android:fontFamily="sans-serif-condensed"
             android:hint="lbs."
             android:inputType="number"
+            android:maxLength="3"
             android:textAlignment="viewEnd"
             android:textColorHint="@color/gr_400" />
 
@@ -72,10 +73,10 @@
             android:layout_height="40dp"
             android:layout_gravity="left|center_vertical"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
             android:text="Age"
             android:textColor="@color/textColorPrimary"
-            android:tint="@color/lb_900"
-            android:fontFamily="sans-serif-medium"/>
+            android:tint="@color/lb_900" />
 
         <EditText
             android:id="@+id/years"
@@ -85,6 +86,7 @@
             android:fontFamily="sans-serif-condensed"
             android:hint="years"
             android:inputType="number"
+            android:maxLength="3"
             android:textAlignment="viewEnd"
             android:textColorHint="@color/gr_400" />
 
@@ -118,10 +120,10 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
             android:text="Height"
             android:textColor="@color/textColorPrimary"
-            android:tint="@color/lb_900"
-            android:fontFamily="sans-serif-medium"/>
+            android:tint="@color/lb_900" />
 
         <EditText
             android:id="@+id/feet"
@@ -131,6 +133,7 @@
             android:fontFamily="sans-serif-condensed"
             android:hint="feet"
             android:inputType="number"
+            android:maxLength="1"
             android:textAlignment="viewEnd"
             android:textColorHint="@color/gr_400" />
 
@@ -142,20 +145,28 @@
             android:fontFamily="sans-serif-condensed"
             android:hint="inches"
             android:inputType="number"
+            android:maxLength="2"
             android:textAlignment="viewEnd"
             android:textColorHint="@color/gr_400" />
 
-        <ImageView
+        <Switch
+            android:id="@+id/heightUnit"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:buttonTint="@color/lb_900"
+            android:showText="true"
+            android:soundEffectsEnabled="true"
+            android:textOff="ft"
+            android:textOn="cm" />
+
     </LinearLayout>
 
-   <!-- <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="BMI" />-->
+    <!-- <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="bottom|center_horizontal"
+         android:layout_marginTop="@dimen/activity_vertical_margin"
+         android:text="BMI" />-->
 
 </LinearLayout>
