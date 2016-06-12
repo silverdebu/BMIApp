@@ -39,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             getPortraitFrag(savedInstanceState);
-        } else
+        } else {
             getPortraitFrag(savedInstanceState);
+        }
     }
 
     private void getPortraitFrag(Bundle savedInstanceState) {

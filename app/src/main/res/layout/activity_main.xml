@@ -27,10 +27,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
--->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,50 +35,35 @@
         android:background="@color/fragBackgroundColor"
         android:orientation="vertical">
 
+
         <FrameLayout
             android:id="@+id/detailFrame"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <!--<ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:elevation="5dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_panorama_vertical_black_24dp"
-                android:tint="@color/gr_700" />-->
-        </FrameLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_weight="0.003"
-            android:background="@color/dividerColor"
-            />
+            android:layout_weight="2"
+            android:background="#C8E6C9"
+            android:elevation="5dp" />
 
         <FrameLayout
             android:id="@+id/inputFrame"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5">
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_weight="4">
 
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|bottom"
-                android:layout_margin="@dimen/fab_margin"
-                android:src="@drawable/ic_touch_app_black_24dp"
-                android:tint="#FFFFFF" />
         </FrameLayout>
 
     </LinearLayout>
 
-    <!--</ScrollView>-->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_touch_app_black_24dp"
+        android:tint="#FFFFFF"
+        app:layout_anchor="@+id/detailFrame"
+        app:layout_anchorGravity="bottom|right|end"/>
+
 </android.support.design.widget.CoordinatorLayout>

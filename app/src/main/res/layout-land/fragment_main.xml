@@ -2,9 +2,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
+    android:layout_marginBottom="@dimen/activity_horizontal_margin"
     android:layout_marginEnd="@dimen/activity_horizontal_margin"
     android:layout_marginStart="@dimen/activity_horizontal_margin"
-    android:layout_marginTop="@dimen/inputTileHeight"
+    android:layout_marginTop="@dimen/activity_horizontal_margin"
     android:orientation="vertical">
 
 
@@ -25,8 +26,7 @@
              android:tint="@color/lb_900" />-->
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:text="Weight"
@@ -38,14 +38,14 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/weightLayout"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
             android:hint="lbs.">
 
             <EditText
                 android:id="@+id/weight"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed"
                 android:inputType="number"
                 android:maxLength="3"
@@ -57,14 +57,21 @@
         <Switch
             android:id="@+id/weightUnit"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
             android:buttonTint="@color/lb_900"
             android:showText="true"
             android:soundEffectsEnabled="true"
             android:textOff="lb"
             android:textOn="kg"
-            android:textSize="@dimen/inputTextSize" />
+            android:textSize="@dimen/inputTextSize"
+            android:layout_gravity="end"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -86,7 +93,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:text="Age"
@@ -97,14 +104,14 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
             android:hint="years">
 
             <EditText
                 android:id="@+id/years"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed"
                 android:inputType="number"
                 android:maxLength="3"
@@ -116,13 +123,19 @@
         <Switch
             android:id="@+id/sex"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
             android:buttonTint="@color/lb_900"
             android:showText="true"
             android:soundEffectsEnabled="true"
             android:textOff="M"
-            android:textOn="F" />
+            android:textOn="F"
+            android:layout_gravity="end"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -143,7 +156,7 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:text="Height"
@@ -152,54 +165,66 @@
             android:textSize="@dimen/inputTextSize"
             android:tint="@color/lb_900" />
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/feetTextLay"
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1.5"
-            android:hint="feet">
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/feet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textAlignment="viewEnd"
-                android:textColorHint="@color/gr_400"
-                android:textSize="@dimen/inputTextSize" />
-        </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/feetTextLay"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="feet">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/inchsTextLay"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.5"
-            android:hint="inchs">
+                <EditText
+                    android:id="@+id/feet"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textAlignment="viewEnd"
+                    android:textColorHint="@color/gr_400"
+                    android:textSize="@dimen/inputTextSize" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/inchs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:inputType="number"
-                android:maxLength="2"
-                android:textAlignment="viewEnd"
-                android:textColorHint="@color/gr_400"
-                android:textSize="@dimen/inputTextSize" />
-        </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inchsTextLay"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="inchs">
+
+                <EditText
+                    android:id="@+id/inchs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textAlignment="viewEnd"
+                    android:textColorHint="@color/gr_400"
+                    android:textSize="@dimen/inputTextSize" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
 
         <Switch
             android:id="@+id/heightUnit"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="1.5"
             android:buttonTint="@color/lb_900"
             android:showText="true"
-            android:soundEffectsEnabled="true"
             android:textOff="ft"
             android:textOn="cm" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
     </LinearLayout>
 

@@ -3,50 +3,117 @@
     android:layout_height="match_parent"
     android:layout_marginEnd="@dimen/activity_horizontal_margin"
     android:layout_marginStart="@dimen/activity_horizontal_margin"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/activity_horizontal_margin"
+    android:layout_marginBottom="32dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/activity_vertical_margin_sec"
-        android:orientation="horizontal">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_gravity="left|center_vertical"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
             android:text="BMI"
-            android:textColor="@color/textColorPrimary"
-            android:tint="@color/lb_900" />
+            android:fontFamily="sans-serif"
+            android:textAlignment="viewStart"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
 
-        <FrameLayout
+
+        <TextView
             android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_gravity="left|center_vertical"
-            android:layout_weight="3">
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:text="- - -"
+            android:textAlignment="viewEnd"/>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="16dp"
-                android:layout_gravity="top"
-                android:src="@drawable/gradient_bar" />
-
-            <ImageView
-                android:layout_width="8dp"
-                android:layout_height="16dp"
-                android:layout_gravity="center_vertical|top|center_horizontal"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_panorama_vertical_black_24dp"
-                android:tint="@color/gr_700" />
-        </FrameLayout>
-
-
-        <ImageView
+      <!--  <ImageView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />-->
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Weight Status"
+            android:fontFamily="sans-serif"
+            android:textAlignment="viewStart"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:text="- - -"
+            android:textAlignment="viewEnd"/>
+
+       <!-- <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Ideal Weight"
+            android:fontFamily="sans-serif"
+            android:textAlignment="viewStart"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:text="- - -"
+            android:textAlignment="viewEnd"/>
+
+      <!--  <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />-->
+
+    </LinearLayout>
+
+
+
+
 
 </LinearLayout>

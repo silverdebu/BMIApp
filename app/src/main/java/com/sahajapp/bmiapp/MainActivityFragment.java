@@ -29,6 +29,7 @@ public class MainActivityFragment extends Fragment {
     private Switch weightUnit = null;
     private TextInputLayout feetLayout = null;
     private TextInputLayout inchsLayout = null;
+    private TextInputLayout weightLayout = null;
 
     public static MainActivityFragment newInstance() {
         MainActivityFragment fragment = new MainActivityFragment();
@@ -70,6 +71,7 @@ public class MainActivityFragment extends Fragment {
 
         feetLayout = (TextInputLayout) view.findViewById(R.id.feetTextLay);
         inchsLayout = (TextInputLayout) view.findViewById(R.id.inchsTextLay);
+        weightLayout = (TextInputLayout) view.findViewById(R.id.weightLayout);
 
         setSwitchListners();
 
@@ -121,9 +123,9 @@ public class MainActivityFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 weight.getText().clear();
                 if (isChecked) {
-                    weight.setHint("kg");
+                    weightLayout.setHint("kg");
                 }else
-                    weight.setHint("lb");
+                    weightLayout.setHint("lb");
                 weight.requestFocus();
             }
         });
