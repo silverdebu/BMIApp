@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/activity_vertical_margin_sec"
+        android:layout_height="@dimen/inputTileHeight"
         android:orientation="horizontal">
 
         <!-- <ImageView
@@ -29,17 +29,22 @@
             android:textColor="@color/textColorPrimary"
             android:tint="@color/lb_900" />
 
-        <EditText
-            android:id="@+id/weight"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:fontFamily="sans-serif-condensed"
-            android:hint="lbs."
-            android:inputType="number"
-            android:maxLength="3"
-            android:textAlignment="viewEnd"
-            android:textColorHint="@color/gr_400" />
+            android:hint="lbs.">
+
+            <EditText
+                android:id="@+id/weight"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textAlignment="viewEnd"
+                android:textColorHint="@color/gr_400" />
+        </android.support.design.widget.TextInputLayout>
 
         <Switch
             android:id="@+id/weightUnit"
@@ -78,17 +83,22 @@
             android:textColor="@color/textColorPrimary"
             android:tint="@color/lb_900" />
 
-        <EditText
-            android:id="@+id/years"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:fontFamily="sans-serif-condensed"
-            android:hint="years"
-            android:inputType="number"
-            android:maxLength="3"
-            android:textAlignment="viewEnd"
-            android:textColorHint="@color/gr_400" />
+            android:hint="years">
+
+            <EditText
+                android:id="@+id/years"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textAlignment="viewEnd"
+                android:textColorHint="@color/gr_400" />
+        </android.support.design.widget.TextInputLayout>
 
         <Switch
             android:id="@+id/sex"
@@ -125,29 +135,41 @@
             android:textColor="@color/textColorPrimary"
             android:tint="@color/lb_900" />
 
-        <EditText
-            android:id="@+id/feet"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/feetTextLay"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1.5"
-            android:fontFamily="sans-serif-condensed"
-            android:hint="feet"
-            android:inputType="number"
-            android:maxLength="1"
-            android:textAlignment="viewEnd"
-            android:textColorHint="@color/gr_400" />
+            android:hint="feet">
 
-        <EditText
-            android:id="@+id/inchs"
+            <EditText
+                android:id="@+id/feet"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textAlignment="viewEnd"
+                android:textColorHint="@color/gr_400" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inchsTextLay"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1.5"
-            android:fontFamily="sans-serif-condensed"
-            android:hint="inches"
-            android:inputType="number"
-            android:maxLength="2"
-            android:textAlignment="viewEnd"
-            android:textColorHint="@color/gr_400" />
+            android:hint="inchs">
+
+            <EditText
+                android:id="@+id/inchs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textAlignment="viewEnd"
+                android:textColorHint="@color/gr_400" />
+        </android.support.design.widget.TextInputLayout>
 
         <Switch
             android:id="@+id/heightUnit"

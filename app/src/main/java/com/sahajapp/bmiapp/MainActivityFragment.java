@@ -2,6 +2,7 @@ package com.sahajapp.bmiapp;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,8 @@ public class MainActivityFragment extends Fragment {
     private Switch heightUnit = null;
     private Switch sex = null;
     private Switch weightUnit = null;
+    private TextInputLayout feetLayout = null;
+    private TextInputLayout inchsLayout = null;
 
     public static MainActivityFragment newInstance() {
         MainActivityFragment fragment = new MainActivityFragment();
@@ -65,6 +68,9 @@ public class MainActivityFragment extends Fragment {
         weightUnit = (Switch) view.findViewById(R.id.weightUnit);
         sex = (Switch) view.findViewById(R.id.sex);
 
+        feetLayout = (TextInputLayout) view.findViewById(R.id.feetTextLay);
+        inchsLayout = (TextInputLayout) view.findViewById(R.id.inchsTextLay);
+
         setSwitchListners();
 
 
@@ -82,23 +88,28 @@ public class MainActivityFragment extends Fragment {
                     showToastMessage("CHECKED", buttonView.getContext());
                     feet.getText().clear();
                     inchs.getText().clear();
-                    inchs.setVisibility(View.GONE);
-                    feet.setLayoutParams(new LinearLayout.LayoutParams(0,
-                            (int) getResources().getDimension(R.dimen.inputTextHeight), 3f));
-                    feet.setHint("cm");
+
+                    inchsLayout.setVisibility(View.INVISIBLE);
+
+//                    feetLayout.setLayoutParams(new LinearLayout.LayoutParams(0,
+//                            (int) getResources().getDimension(R.dimen.inputTextHeight), 3f));
+                    feetLayout.setHint("cm");
+
                     feet.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
                     feet.requestFocus();
                 } else {
                     showToastMessage("NOT CHECKED", buttonView.getContext());
                     feet.getText().clear();
                     inchs.getText().clear();
-                    inchs.setVisibility(View.VISIBLE);
-                    feet.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
-                    feet.setLayoutParams(new LinearLayout.LayoutParams(0,
-                            (int) getResources().getDimension(R.dimen.inputTextHeight), 1.5f));
-//                    inchs.setLayoutParams(new LinearLayout.LayoutParams(0,
+
+                    inchsLayout.setVisibility(View.VISIBLE);
+//                    inchsLayout.setLayoutParams(new LinearLayout.LayoutParams(0,
 //                            (int) getResources().getDimension(R.dimen.inputTextHeight), 1.5f));
-                    feet.setHint("feet");
+//                    feetLayout.setLayoutParams(new LinearLayout.LayoutParams(0,
+//                            (int) getResources().getDimension(R.dimen.inputTextHeight), 1.5f));
+                    feetLayout.setHint("feet");
+
+                    feet.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
                     feet.requestFocus();
 
                 }
@@ -109,20 +120,24 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 weight.getText().clear();
+                if (isChecked) {
+                    weight.setHint("kg");
+                }else
+                    weight.setHint("lb");
                 weight.requestFocus();
             }
         });
 
         sex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-               @Override
-               public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                   if (isChecked) {
-                       showToastMessage("Female", buttonView.getContext());
-                   } else {
-                       showToastMessage("Male", buttonView.getContext());
-                   }
-               }
-           }
+                                           @Override
+                                           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                               if (isChecked) {
+                                                   showToastMessage("Female", buttonView.getContext());
+                                               } else {
+                                                   showToastMessage("Male", buttonView.getContext());
+                                               }
+                                           }
+                                       }
         );
     }
 }
