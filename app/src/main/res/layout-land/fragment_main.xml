@@ -47,8 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed"
-                android:inputType="number"
-                android:maxLength="3"
+                android:inputType="numberDecimal"
+                android:maxLength="6"
                 android:textAlignment="viewEnd"
                 android:textColorHint="@color/gr_400"
                 android:textSize="@dimen/inputTextSize" />
@@ -195,7 +195,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:hint="inchs">
+                android:hint="inches">
 
                 <EditText
                     android:id="@+id/inchs"

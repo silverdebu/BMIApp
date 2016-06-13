@@ -2,6 +2,7 @@ package com.sahajapp.bmiapp;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.text.InputFilter;
 import android.view.LayoutInflater;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Switch;
 
 import static com.sahajapp.bmiapp.CommonUtil.showToastMessage;
@@ -121,10 +121,11 @@ public class MainActivityFragment extends Fragment {
         weightUnit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                weight.getText().clear();
+                if (weight.getText() == null || weight.getText().toString().trim().length() == 0)
+                    weight.getText().clear();
                 if (isChecked) {
                     weightLayout.setHint("kg");
-                }else
+                } else
                     weightLayout.setHint("lb");
                 weight.requestFocus();
             }
@@ -141,5 +142,40 @@ public class MainActivityFragment extends Fragment {
                                            }
                                        }
         );
+    }
+
+
+
+    public double calculateBMI() {
+
+        if (weight.getText().toString().trim().length() == 0 || feet.getText().toString().trim().length() == 0) {
+//            .
+            Snackbar.make(getView(), "Provide height and weight", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            return 0;
+        } /*else if (!heightUnit.isChecked() && inchs.getText().toString().trim().length() == 0) {
+            Snackbar.make(getView(), "Provide height and weight", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            return 0;
+        }*/
+
+        //getWeightInLb
+        double weightValue = weight.getText().toString().trim().length() == 0 ? 0 : Integer.parseInt(weight.getText().toString());
+        if (!weightUnit.isChecked()) {
+            weightValue = CommonUtil.lbtokg(weightValue);
+        }
+
+        //getHeightInInchs
+        double heightValue = feet.getText().toString().trim().length() == 0 ? 0 : Double.parseDouble(feet.getText().toString());
+        double inchValue = inchs.getText().toString().trim().length() == 0 ? 0 : Double.parseDouble(inchs.getText().toString());
+        if (!heightUnit.isChecked()) {
+            heightValue = (heightValue * 12) + inchValue;
+            heightValue = CommonUtil.inchtocm(heightValue);
+        }
+
+        double result = (weightValue) / ((heightValue * heightValue) / 10000);
+
+        return result;
+
     }
 }

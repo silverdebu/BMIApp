@@ -4,8 +4,6 @@ import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -16,6 +14,9 @@ import static com.sahajapp.bmiapp.CommonUtil.showToastMessage;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String inputFragTag = "inputFragTag";
+    private static final String resultFragTag = "resultFragTag";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,34 +24,36 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-       /* TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
-        tabs.addTab(tabs.newTab().setText("Tab 1"));
-        tabs.addTab(tabs.newTab().setText("Tab 2"));
-        tabs.addTab(tabs.newTab().setText("Tab 3"));*/
 
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             getPortraitFrag(savedInstanceState);
         } else {
             getPortraitFrag(savedInstanceState);
         }
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                calculateAndShowResult();
+            }
+        });
+    }
+
+    public void calculateAndShowResult() {
+        MainActivityFragment mainActivityFragment = (MainActivityFragment) getFragmentManager().findFragmentByTag(inputFragTag);
+        DetailFragment detailFragment = (DetailFragment) getFragmentManager().findFragmentByTag(resultFragTag);
+        detailFragment.showResults(mainActivityFragment.calculateBMI());
     }
 
     private void getPortraitFrag(Bundle savedInstanceState) {
         if (savedInstanceState != null) return;
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.inputFrame, MainActivityFragment.newInstance());
-        transaction.replace(R.id.detailFrame, DetailFragment.newInstance());
+        transaction.replace(R.id.inputFrame, MainActivityFragment.newInstance(),inputFragTag);
+        transaction.replace(R.id.detailFrame, DetailFragment.newInstance(),resultFragTag);
         transaction.commit();
-        showToastMessage("Started Frag",this);
+        showToastMessage("Started Frag", this);
     }
 
     @Override

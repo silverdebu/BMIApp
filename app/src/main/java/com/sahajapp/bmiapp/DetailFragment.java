@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -27,6 +28,10 @@ public class DetailFragment extends Fragment {
     private String mParam2;
 
     // private OnFragmentInteractionListener mListener;
+
+    private TextView bmiTxt = null;
+    private TextView weightStatusTxt = null;
+    private TextView idealWeightText = null;
 
     public static DetailFragment newInstance() {
         DetailFragment fragment = new DetailFragment();
@@ -68,7 +73,34 @@ public class DetailFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_detail, container, false);
     }
 
-    /*
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        bmiTxt = (TextView) view.findViewById(R.id.bmiResultTxt);
+    }
+
+    public void showResults(double bmi) {
+        bmiTxt = (TextView) this.getActivity().findViewById(R.id.bmiResultTxt);
+        if (bmi != 0)
+            bmiTxt.setText(String.format("%.2f", bmi));
+        else
+            bmiTxt.setText("- - -");
+    }
+
+    @Override
+    public void onSaveInstanceState(final Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("bmiResult", bmiTxt.getText().toString());
+    }
+
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if (savedInstanceState!=null && savedInstanceState.getString("bmiResult") != null)
+            bmiTxt.setText(savedInstanceState.getString("bmiResult"));
+    }
+
+  /*
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -98,7 +130,7 @@ public class DetailFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
