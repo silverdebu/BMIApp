@@ -160,7 +160,7 @@ public class MainActivityFragment extends Fragment {
         }*/
 
         //getWeightInLb
-        double weightValue = weight.getText().toString().trim().length() == 0 ? 0 : Integer.parseInt(weight.getText().toString());
+        double weightValue = weight.getText().toString().trim().length() == 0 ? 0 : Double.parseDouble(weight.getText().toString());
         if (!weightUnit.isChecked()) {
             weightValue = CommonUtil.lbtokg(weightValue);
         }
